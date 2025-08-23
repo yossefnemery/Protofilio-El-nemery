@@ -10,16 +10,41 @@
      overflow-x: hidden;
  }
 
- /* فيديو النجوم */
- .bg-video {
-     position: fixed;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-     object-fit: cover;
-     z-index: -1;
- }
+
+ .video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-desktop {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.video-mobile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+/* موبايل يظهر الصورة بدل الفيديو */
+@media (max-width: 768px) {
+    .video-desktop {
+        display: none;
+    }
+    .video-mobile {
+        display: block;
+    }
+}
+
 
  /* الـ NAV */
  nav {
