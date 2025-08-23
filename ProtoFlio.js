@@ -55,3 +55,29 @@ function sendEmail() {
             alert("There was an error sending your message. Please try again later.");
         });
 }
+
+
+
+
+
+// ===== Mobile nav (hamburger) =====
+const navEl = document.querySelector('nav');
+const burger = document.querySelector('.hamburger');
+const navAnchors = document.querySelectorAll('nav .nav-links a');
+
+if (burger && navEl) {
+  burger.addEventListener('click', () => {
+    const isOpen = navEl.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : ''; // يمنع سكرول تحت المنيو
+  });
+
+  // اقفل المنيو أول ما المستخدم يضغط على أي لينك
+  navAnchors.forEach(a => {
+    a.addEventListener('click', () => {
+      navEl.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+}
