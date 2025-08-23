@@ -45,7 +45,6 @@
     }
 }
 
-
  /* الـ NAV */
  nav {
      position: fixed;
@@ -74,6 +73,23 @@
      color: #00eaff;
      text-shadow: 0 0 8px #00eaff;
  }
+
+/* تحسين العرض للموبايل */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;   /* يخلي اللينكات تحت بعض */
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  nav a {
+    font-size: 16px;  /* أصغر شوية للموبايل */
+    display: block;
+    padding: 8px 0;
+  }
+}
+
 
  /* جملة الترحيب */
  .content {
@@ -207,6 +223,39 @@
      box-shadow: 0 0 10px #00eaff;
  }
 
+
+/* ⬇️ موبايل: about section */
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        align-items: center;
+        margin: 80px auto;
+        padding: 15px;
+    }
+
+    .about-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .about-images img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .about h1 {
+        font-size: 1.8rem;
+    }
+
+    .about h2 {
+        font-size: 1.5rem;
+    }
+
+    .about p {
+        font-size: 1rem;
+    }
+}
 
 
  .about-images {
