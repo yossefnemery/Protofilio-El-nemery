@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(180deg, #0b3d0b, #000);
+            font-family: Arial, sans-serif;
+        }
+
+        .calculator {
+            background: #111;
+            border-radius: 20px;
+            border: 2px solid white;
+            padding: 20px;
+            box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.4);
+            width: 350px;
+        }
+
+        .display {
+            width: 100%;
+            height: 80px;
+            background: #0f260f;
+            border: 1px solid white;
+            border-radius: 10px;
+            font-size: 32px;
+            color: #00ff99;
+            text-align: right;
+            padding: 15px;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        button {
+            height: 70px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            background: #0f260f;
+            color: #00ff99;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #00cc669a;
+            color: #111;
+        }
+
+        button.operator {
+            background: #004d26;
+        }
+
+        button.operator:hover {
+            background: #00cc669a;
+            color: #111;
+        }
+
+        button.equal {
+            grid-column: span 3;
+            background: #008040;
+            color: #fff;
+        }
+        button.equal:hover {
+            grid-column: span 3;
+            background: #000000;
+            color: #00cc669a;
+            border: solid 2px #00cc669a;
+        }
+
+        button.clear {
+            background: #04aa1a;
+            color: #fff;
+        }
+
+        button.clear:hover {
+            background: #00cc669a;
+            color: #111;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" class="display" id="display" readonly>
+        <div class="buttons">
+            <button class="clear">C</button>
+            <button class="operator">/</button>
+            <button class="operator">*</button>
+            <button class="operator">%</button>
+
+            <button class="operator">-</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+
+            <button class="operator">+</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+
+            <button>.</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+
+            <button class="equal">=</button>
+            <button style="grid-column: span 1;">0</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById("display");
+        const buttons = document.querySelectorAll("button");
+
+        let currentInput = "";
+
+        buttons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const value = btn.textContent;
+
+                if (value === "C") {
+                    currentInput = "";
+                    display.value = "";
+                } else if (value === "=") {
+                    try {
+                        currentInput = eval(currentInput).toString();
+                        display.value = currentInput;
+                    } catch {
+                        display.value = "Error";
+                        currentInput = "";
+                    }
+                } else {
+                    currentInput += value;
+                    display.value = currentInput;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

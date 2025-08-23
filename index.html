@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <!-- خطوط جوجل -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="ProtoFlio.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "nCAqNyArASPY0vP35",
+            });
+        })();
+    </script>
+</head>
+
+<body>
+    <!-- فيديو النجوم -->
+    <video autoplay muted loop class="bg-video">
+        <source src="Space_background.mp4" type="video/mp4">
+    </video>
+
+    <!-- شريط التنقل -->
+    <nav>
+        <a href="#top">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#Social">Social Media</a>
+    </nav>
+
+    <!-- جملة الترحيب -->
+    <div class="content" id="typing"></div>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-card">
+            <div class="about">
+                <h1>Youssef El-Nemery</h1>
+                <h2>About Me</h2>
+                <p>
+                    Hello! I'm Yossef,20 years old, Student at the Faculty of Commerce,
+                    Assiut University, Public Policy Information Systems Program <br>
+                    20 years old <br>
+                    <span class="ui">UI/UX Engineer & Front-End Developer</span><br><br>
+                    <span class="cv-container">
+                        My CV
+                        <a href="./Yossef_Nemery_CV.pdf" download class="cv-btn">Download</a>
+                        <a href="./Yossef_Nemery_CV.pdf" target="_blank" class="cv-btn">Show</a>
+                    </span>
+                </p>
+            </div>
+            <div class="about-images">
+                <img class="my-img" src="MY imge.jpg" alt="Me">
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+            <!-- Project Cards هنا -->
+            <div class="project-card">
+                <img src="imge projects/FAIRMONT HOTEL page.png" alt="Project 1">
+                <h3>FAIRMONT HOTEL</h3>
+                <p>A website that allows customers to book rooms and explore the hotel’s services easily</p>
+                <a href="FAIRMONT HOTEL/project 1.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="imge projects/Sneakers page.png" alt="Project 2">
+                <h3>Sneakers Shoes</h3>
+                <p>A platform to showcase different types of shoes with browsing and online purchase options.</p>
+                <a href="E-Market/e-market.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="imge projects/Digigram page.png" alt="Project 2">
+                <h3>Digigram</h3>
+                <p>A digital platform providing interactive digital content and services</p>
+                <a href="Digigram/Digi.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="imge projects/Calculator.png" alt="Project 2">
+                <h3>Calculator</h3>
+                <p>A digital platform providing interactive digital content and services</p>
+                <a href="Calculator/cu.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="imge projects/to-do.png" alt="Project 2">
+                <h3>TO-DO-List</h3>
+                <p>An application to manage daily tasks and organize work efficiently</p>
+                <a href="To do/To-Do List.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="imge projects/mini game page.png" alt="Project 2">
+                <h3>Mini Game</h3>
+                <p>A small, fun game with an interactive and engaging interface</p>
+                <a href="Mini game/ball game.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="imge projects/face.png" alt="Project 2">
+                <h3>FaceBook Login</h3>
+                <p>A login page that allows users to sign in using their Facebook account</p>
+                <a href="facebook/facebook.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="imge projects/instaa.png" alt="Project 2">
+                <h3>Instgram Login</h3>
+                <p>A login interface for users to sign in via Instagram</p>
+                <a href="insta/insta - Copy.html" target="_blank" class="btn">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="imge projects/twitter.png" alt="Project 2">
+                <h3>twitter Login</h3>
+                <p>A login page enabling users to access the site with their Twitter account</p>
+                <a href="X/twitter.html" target="_blank" class="btn">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <h2>Contact Me</h2>
+        <form class="contact-form" onsubmit="sendEmail(); return false;">
+            <h2>Your first deal with me is FREE</h2>
+            <input type="text" id="full_name" placeholder="Your Full Name" required>
+            <input type="text" id="phone" placeholder="Phone / WhatsApp" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea rows="6" id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Social Section -->
+    <section class="social-section" id="Social">
+        <h2>Follow Me</h2>
+        <div class="social-cards">
+            <a href="https://www.facebook.com/share/1JvEmGABg9/" target="_blank" class="social-card">
+                <i class="fab fa-facebook-f"></i>
+                <span>Facebook</span>
+            </a>
+            <a href="https://wa.me/201097811890" target="_blank" class="social-card">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+            <a href="https://www.tiktok.com/@yossef_elnemery?_t=ZS-8z3GLnfvXZX&_r=1" target="_blank"
+                class="social-card">
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok</span>
+            </a>
+            <a href="https://www.linkedin.com/in/youssef-nemery-07b405334?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank" class="social-card">
+                <i class="fab fa-linkedin-in"></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://www.instagram.com/yossefnemery?igsh=cGoydmN2NjV3aGdx" target="_blank" class="social-card">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://github.com/yossefnemery" target="_blank" class="social-card">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+        </div>
+    </section>
+
+    <script src="ProtoFlio.js"></script>
+</body>
+
+</html>

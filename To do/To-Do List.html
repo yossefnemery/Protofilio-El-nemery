@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home</title>
+  <style>
+    body {
+      background: linear-gradient(90deg, #2289ff, #273b4e);
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+
+    .con {
+      max-width: 800px;
+      margin: 50px auto;
+      background: #06486b;
+      border-radius: 10px;
+      padding: 20px 30px;
+      box-shadow: 0px 0px 20px 5px rgba(250, 250, 250, 0.2);
+      color: white;
+      justify-items: center;
+    }
+
+    .bu {
+      background-color: rgba(31, 128, 255, 0.742);
+      border: none;
+      border-radius: 5px;
+      padding: 15px;
+      width: 300px;
+      font-size: x-large;
+      color: white;
+      box-shadow: 0px 0px 10px 1px rgb(10, 151, 216);
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+
+    th,
+    td {
+      border: 2px solid white;
+      background-color: #165fb38d;
+      padding: 10px;
+      text-align: center;
+    }
+
+    input {
+      border: 1px solid white;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="con">
+    <button class="bu" onclick="add()">Add a new to-do</button>
+    <br><br><br>
+    <table id="todoTable">
+      <tr>
+        <th><input type="text" id="task"></th>
+        <th><input type="text" id="desc"></th>
+        <th><input type="text" id="category"></th>
+      </tr>
+      <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </table>
+  </div>
+  <script>
+    function add() {
+      let task = document.getElementById("task").value;
+      let desc = document.getElementById("desc").value;
+      let category = document.getElementById("category").value;
+      if (task === "" || desc === "" || category === "") {
+        alert("Please fill all fields before adding.");
+        return;
+      }
+      let table = document.getElementById("todoTable");
+      let row = table.insertRow(-1);
+      row.insertCell(0).innerHTML = task;
+      row.insertCell(1).innerHTML = desc;
+      row.insertCell(2).innerHTML = category;
+      let actionCell = row.insertCell(3);
+      let deleteButton = document.createElement("button");
+      deleteButton.innerHTML = "Delete";
+      deleteButton.style.backgroundColor = "red";
+      deleteButton.style.color = "white";
+      deleteButton.style.border = "1px solid";
+      deleteButton.style.borderRadius = "5px";
+      deleteButton.style.padding = "5px 10px";
+      deleteButton.style.cursor = "pointer";
+      deleteButton.onclick = function () {
+        table.deleteRow(row.rowIndex);
+      };
+      let doneButton = document.createElement("button");
+      doneButton.innerHTML = "Done";
+      doneButton.style.backgroundColor = "green";
+      doneButton.style.color = "white";
+      doneButton.style.border = "1px solid";
+      doneButton.style.borderRadius = "5px";
+      doneButton.style.padding = "5px 10px";
+      doneButton.style.cursor = "pointer";
+      doneButton.style.marginLeft = "5px";
+      doneButton.onclick = function () {
+        row.style.textDecoration = "line-through";
+      };
+      actionCell.appendChild(deleteButton);
+      actionCell.appendChild(doneButton);
+      document.getElementById("task").value = "";
+      document.getElementById("desc").value = "";
+      document.getElementById("category").value = "";
+    }
+  </script>
+</body>
+
+</html>

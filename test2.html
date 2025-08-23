@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Portfolio</title>
+
+  <!-- خطوط جوجل -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "nCAqNyArASPY0vP35",
+      });
+   })();
+</script>
+  <!-- CSS خارجي -->
+  
+  <style>
+    html {
+  scroll-behavior: smooth;
+}
+body {
+  background: black;
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* فيديو النجوم */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* الـ NAV */
+nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 25px;
+  padding: 10px 25px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  z-index: 10;
+  width: fit-content;
+}
+
+nav a {
+  color: #e4e4e4;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #00eaff;
+  text-shadow: 0 0 8px #00eaff;
+}
+
+/* جملة الترحيب */
+.content {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: #00eaff;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+  overflow: hidden;
+  width: fit-content;
+  margin: 120px auto 0 auto;
+  animation: blink 0.7s infinite;
+  text-align: center;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* الدخان حوالين الماوس */
+.smoke {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, rgba(0, 200, 255, 0.6) 0%, rgba(0, 180, 255, 0) 80%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: fade 1.5s ease-out forwards;
+  mix-blend-mode: screen;
+  z-index: 50;
+}
+
+@keyframes fade {
+  from { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+  to   { opacity: 0; transform: translate(-50%, -50%) scale(2); }
+}
+
+/* About Section */
+.about-section {
+  display: flex;
+  justify-content: center;
+  margin: 150px auto;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+/* Card موحد للصور والأسهم */
+.about-card {
+  display: flex;
+  gap: 30px;
+  background: rgba(15, 15, 25, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.3);
+  padding: 20px;
+  align-items: center;
+}
+
+.about {
+  flex: 1;
+  color: #e4e4e4;
+  font-family: 'Poppins', sans-serif;
+}
+
+.about h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: #00eaff;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+}
+.about h1{
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.3rem;
+  margin-bottom: 15px;
+  color: #00eaff;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+}
+.ui{
+  font-family: 'Orbitron', sans-serif;
+  font-size: large;
+  margin-bottom: 15px;
+  color: #00eaff;
+  text-shadow: 0 0 10px rgb(0, 200, 255);
+}
+.about p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #f5f5f5;
+}
+.cv-container {
+  font-family: 'Orbitron', sans-serif;
+  color: #00eaff;
+  font-weight: 700;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+}
+
+.cv-btn {
+  background: #00eaff;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  transition: 0.3s;
+  font-size: 0.9rem;
+}
+
+.cv-btn:hover {
+  background: transparent;
+  color: #00eaff;
+  border: 1px solid #00eaff;
+  box-shadow: 0 0 10px #00eaff;
+}
+
+
+
+.about-images {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-images img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 15px rgba(0, 200, 255, 0.4);
+  transition: opacity 0.5s ease;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s;
+  background: none;
+  border: none;
+}
+
+.arrow:hover { color: #00eaff; }
+.arrow.left { left: 10px; }
+.arrow.right { right: 10px; }
+
+/* Projects Section */
+.projects-section {
+  margin: 100px auto;
+  max-width: 1200px;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.projects-section h2 {
+  font-size: 2.5rem;
+  color: #00eaff;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+  margin-bottom: 40px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  background: rgba(15, 15, 25, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.5);
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.project-card h3 { color: #fff; margin-bottom: 10px; }
+.project-card p { color: #ccc; font-size: 1rem; margin-bottom: 15px; }
+.project-card .btn {
+  display: inline-block;
+  padding: 8px 15px;
+  color: #00eaff;
+  border: 1px solid #00eaff;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.project-card .btn:hover {
+  background: #00eaff;
+  color: #000;
+}
+
+/* Contact Section */
+.contact-section {
+  margin: 100px auto;
+  max-width: 700px;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  color: #00eaff;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+  margin-bottom: 40px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: rgba(15, 15, 25, 0.7);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.3);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  resize: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #ccc;
+}
+
+.contact-form button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid #00eaff;
+  border-radius: 10px;
+  background: transparent;
+  color: #00eaff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #00eaff;
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 200, 255, 0.6);
+}
+
+.contact-form button:active {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid #00eaff;
+  border-radius: 10px;
+  background: transparent;
+  color: #00eaff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Social Section */
+.social-section { margin: 100px auto; text-align: center; }
+.social-section h2 {
+  font-size: 2.5rem;
+  color: #00eaff;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+  margin-bottom: 40px;
+}
+.social-cards { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; }
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 120px;
+  padding: 20px;
+  background: rgba(15, 15, 25, 0.7);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.3);
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+  font-size: 1.2rem;
+}
+.social-card i { font-size: 2rem; }
+.social-card:hover { transform: translateY(-10px); box-shadow: 0 0 25px rgba(0, 200, 255, 0.7); color: #00eaff; }
+
+
+
+
+
+
+
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- فيديو النجوم -->
+  <video autoplay muted loop class="bg-video">
+    <source src="Space_background.mp4" type="video/mp4">
+  </video>
+
+  <!-- شريط التنقل -->
+  <nav>
+    <a href="#top">Home</a>
+  <a href="#about">About Me</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+  <a href="#Social">Social Media</a>
+  </nav>
+
+  <!-- جملة الترحيب -->
+  <div class="content" id="typing"></div>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="about-card">
+      <div class="about">
+        <h1>Youssef El-Nemery</h1>
+        <h2>About Me</h2>
+       <p>
+  Hello! I'm Yossef,20 years old, Student at the Faculty of Commerce,
+   Assiut University, Public Policy Information Systems Program <br>
+   20 years old <br>
+  <span class="ui">UI/UX Engineer & Front-End Developer</span><br><br>
+  <span class="cv-container">
+    My CV
+    <a href="./Yossef_Nemery_CV.pdf" download class="cv-btn">Download</a>
+    <a href="./Yossef_Nemery_CV.pdf" target="_blank" class="cv-btn">Show</a>
+  </span>
+</p>
+      </div>
+      <div class="about-images">
+        <img class="my-img" src="MY imge.jpg" alt="Me">
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects-section" id="projects">
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+      <!-- Project Cards هنا -->
+       <div class="project-card">
+      <img src="imge projects/FAIRMONT HOTEL page.png" alt="Project 1">
+      <h3>FAIRMONT HOTEL</h3>
+      <p>A website that allows customers to book rooms and explore the hotel’s services easily</p>
+      <a href="FAIRMONT HOTEL/project 1.html" target="_blank" class="btn">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="imge projects/Sneakers page.png" alt="Project 2">
+      <h3>Sneakers Shoes</h3>
+      <p>A platform to showcase different types of shoes with browsing and online purchase options.</p>
+      <a href="E-Market/e-market.html" target="_blank" class="btn">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="imge projects/Digigram page.png" alt="Project 2">
+      <h3>Digigram</h3>
+      <p>A digital platform providing interactive digital content and services</p>
+      <a href="Digigram/Digi.html" target="_blank" class="btn">View Project</a>
+    </div><div class="project-card">
+      <img src="imge projects/Calculator.png" alt="Project 2">
+      <h3>Calculator</h3>
+      <p>A digital platform providing interactive digital content and services</p>
+      <a href="Calculator/cu.html" target="_blank" class="btn">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="imge projects/to-do.png" alt="Project 2">
+      <h3>TO-DO-List</h3>
+      <p>An application to manage daily tasks and organize work efficiently</p>
+      <a href="To do/To-Do List.html" target="_blank" class="btn">View Project</a>
+    </div><div class="project-card">
+      <img src="imge projects/mini game page.png" alt="Project 2">
+      <h3>Mini Game</h3>
+      <p>A small, fun game with an interactive and engaging interface</p>
+      <a href="Mini game/ball game.html" target="_blank" class="btn">View Project</a>
+    </div><div class="project-card">
+      <img src="imge projects/face.png" alt="Project 2">
+      <h3>FaceBook Login</h3>
+      <p>A login page that allows users to sign in using their Facebook account</p>
+      <a href="facebook/facebook.html" target="_blank" class="btn">View Project</a>
+    </div><div class="project-card">
+      <img src="imge projects/instaa.png" alt="Project 2">
+      <h3>Instgram Login</h3>
+      <p>A login interface for users to sign in via Instagram</p>
+      <a href="insta/insta - Copy.html" target="_blank" class="btn">View Project</a>
+    </div><div class="project-card">
+      <img src="imge projects/twitter.png" alt="Project 2">
+      <h3>twitter Login</h3>
+      <p>A login page enabling users to access the site with their Twitter account</p>
+      <a href="X/twitter.html" target="_blank" class="btn">View Project</a>
+    </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <h2>Contact Me</h2>
+    <form class="contact-form" onsubmit="sendEmail(); return false;">
+      <h2>Your first deal with me is FREE</h2>
+      <input type="text" id="full_name" placeholder="Your Full Name" required>
+      <input type="text" id="phone" placeholder="Phone / WhatsApp" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea rows="6" id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Social Section -->
+  <section class="social-section" id="Social">
+    <h2>Follow Me</h2>
+    <div class="social-cards">
+      <a href="https://www.facebook.com/share/1JvEmGABg9/" target="_blank" class="social-card">
+        <i class="fab fa-facebook-f"></i>
+        <span>Facebook</span>
+      </a>
+      <a href="https://wa.me/201097811890" target="_blank" class="social-card">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+      </a>
+      <a href="https://www.tiktok.com/@yossef_elnemery?_t=ZS-8z3GLnfvXZX&_r=1" target="_blank" class="social-card">
+        <i class="fab fa-tiktok"></i>
+        <span>TikTok</span>
+      </a>
+      <a href="https://www.linkedin.com/in/youssef-nemery-07b405334?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-card">
+        <i class="fab fa-linkedin-in"></i>
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://www.instagram.com/yossefnemery?igsh=cGoydmN2NjV3aGdx" target="_blank" class="social-card">
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+      </a>
+      <a href="https://github.com/yossefnemery" target="_blank" class="social-card">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- JS خارجي -->
+  <script>
+
+// تأثير الدخان مع الماوس
+document.addEventListener("mousemove", (e) => {
+  let smoke = document.createElement("div");
+  smoke.className = "smoke";
+  smoke.style.left = e.clientX + "px";
+  smoke.style.top = e.clientY + "px";
+  document.body.appendChild(smoke);
+
+  setTimeout(() => { smoke.remove(); }, 1500);
+});
+
+// تأثير الكتابة
+const text = "Hi, I'm Yossef , Welcome to my Portfolio ";
+const typingElement = document.getElementById("typing");
+let i = 0;
+let deleting = false;
+
+function typeWriter() {
+  if (!deleting && i < text.length) {
+    typingElement.textContent += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 100);
+  } else if (deleting && i > 0) {
+    typingElement.textContent = text.substring(0, i - 1);
+    i--;
+    setTimeout(typeWriter, 50);
+  } else {
+    deleting = !deleting;
+    setTimeout(typeWriter, 800);
+  }
+}
+typeWriter();
+
+// Contact Form Submission
+function submitForm(event) {
+  event.preventDefault();
+  alert("Thank you! Your message has been sent.");
+  event.target.reset();
+}
+
+
+function sendEmail() {
+      const parameters = {
+        full_name: document.getElementById("full_name").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+      };
+      emailjs.send("service_dd216cl", "template_3jkoi3h", parameters)
+        .then(function(response) {
+          console.log("Email sent successfully!", response.status, response.text);
+          alert("Your message has been sent successfully!");
+        }, function(error) {
+          console.error("Failed to send email:", error);
+          alert("There was an error sending your message. Please try again later.");
+        });
+}
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(45deg, #74ebd5, #9face6);
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      flex-direction: column;
+    }
+    #game-area {
+      position: relative;
+      width: 80vw;
+      height: 80vh;
+      background-color: #618198;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    #ball {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: #0073b1;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #target {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #19c8c5;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    #controls {text-align:center;}
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #3498db;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+    button:hover {background-color:#2980b9;}
+    #score {font-size: 24px;font-weight: bold;color:#333;margin-top:10px;}
+  </style>
+</head>
+<body>
+  <div id="game-area">
+    <div id="ball"></div>
+    <div id="target"></div>
+  </div>
+  <div id="controls">
+    <button id="start-button">Start</button>
+    <button id="stop-button" disabled>Stop</button>
+    <button id="restart-button" disabled>Restart</button>
+    <div id="score">point: 0</div>
+    <div id="timer">Time: 02:00</div>
+  </div>
+
+  <script>
+    const ball = document.getElementById('ball');
+    const target = document.getElementById('target');
+    const gameArea = document.getElementById('game-area');
+    const scoreDisplay = document.getElementById('score');
+    const startButton = document.getElementById('start-button');
+    const restartButton = document.getElementById('restart-button');
+    const stopButton = document.getElementById('stop-button');
+    const timerDisplay = document.getElementById('timer');
+
+    let timeLeft = 120, timerInterval;
+    let mouseX = 0, mouseY = 0;
+    let ballX = gameArea.offsetWidth / 2;
+    let ballY = gameArea.offsetHeight / 2;
+    let targetX, targetY;
+    let ballSize = 50;
+    let score = 0;
+    let gameActive = false;
+    let gamePaused = false;
+    const speed = 5;
+
+
+    gameArea.addEventListener('mousemove', (e) => {
+      if (gameActive && !gamePaused) {
+        const rect = gameArea.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+      }
+    });
+
+    
+    function placeTarget() {
+      targetX = Math.random() * (gameArea.offsetWidth - 30) + 15;
+      targetY = Math.random() * (gameArea.offsetHeight - 30) + 15;
+      target.style.left = `${targetX}px`;
+      target.style.top = `${targetY}px`;
+    }
+
+    
+    function updateBallColor() {
+      ball.style.background = `hsl(${Math.floor(Math.random()*360)},80%,50%)`;
+    }
+
+    
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60).toString().padStart(2,'0');
+      const s = (sec % 60).toString().padStart(2,'0');
+      return `Time: ${m}:${s}`;
+    }
+
+    
+    function startTimer() {
+      clearInterval(timerInterval);
+      timerDisplay.textContent = formatTime(timeLeft);
+      timerInterval = setInterval(() => {
+        if (!gameActive || gamePaused) return;
+        timeLeft--;
+        timerDisplay.textContent = formatTime(timeLeft);
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          endGame();
+        }
+      }, 1000);
+    }
+
+   
+    function endGame() {
+      gameActive = false;
+      clearInterval(timerInterval);
+      alert(`Finish, Mabrooooook your score is ${score}`);
+      startButton.disabled = false;
+      restartButton.disabled = true;
+      stopButton.disabled = true;
+      stopButton.textContent = "Stop";
+    }
+
+    
+    function moveBall() {
+      if (!gameActive || gamePaused) return;
+      const dx = mouseX - ballX, dy = mouseY - ballY;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist > 1) {
+        ballX += (dx/dist) * speed;
+        ballY += (dy/dist) * speed;
+      }
+      ball.style.left = `${ballX}px`;
+      ball.style.top = `${ballY}px`;
+
+      const targetDist = Math.sqrt((targetX-ballX)**2 + (targetY-ballY)**2);
+      if (targetDist < ballSize/2 + 15) {
+        score++;
+        scoreDisplay.textContent = `point: ${score}`;
+        updateBallColor();
+        placeTarget();
+      }
+      requestAnimationFrame(moveBall);
+    }
+
+    
+    startButton.addEventListener('click', () => {
+      gameActive = true;
+      gamePaused = false;
+      score = 0;
+      timeLeft = 120;
+      scoreDisplay.textContent = `point: ${score}`;
+      ballX = gameArea.offsetWidth / 2;
+      ballY = gameArea.offsetHeight / 2;
+      startButton.disabled = true;
+      restartButton.disabled = false;
+      stopButton.disabled = false;
+      placeTarget();
+      startTimer();
+      moveBall();
+    });
+
+    
+    restartButton.addEventListener('click', () => {
+      score = 0;
+      ballSize = 50;
+      scoreDisplay.textContent = `point: ${score}`;
+      ball.style.width = ball.style.height = `${ballSize}px`;
+      ballX = gameArea.offsetWidth / 2;
+      ballY = gameArea.offsetHeight / 2;
+      timeLeft = 120;
+      startTimer();
+      placeTarget();
+    });
+
+   
+    stopButton.addEventListener('click', () => {
+      if (!gameActive) return;
+      gamePaused = !gamePaused;
+      stopButton.textContent = gamePaused ? "Resume" : "Stop";
+      if (!gamePaused) moveBall();
+    });
+  </script>
+</body>
+</html>
