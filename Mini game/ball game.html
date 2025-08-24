@@ -57,6 +57,20 @@
     }
     button:hover {background-color:#2980b9;}
     #score {font-size: 24px;font-weight: bold;color:#333;margin-top:10px;}
+
+    @media (max-width: 600px) {
+  #game-area {
+    height: 70vh; /* يقل طول مساحة اللعب على الموبايل */
+  }
+  button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+  #score, #timer {
+    font-size: 20px;
+  }
+}
+
   </style>
 </head>
 <body>
