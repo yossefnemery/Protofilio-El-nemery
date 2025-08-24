@@ -112,40 +112,37 @@
         margin-top: 20px;
     }
 
-    @media (max-width: 768px) {
-        .container {
-            flex-direction: column;
-            padding: 20px;
-        }
-
-        .left, .right {
-            margin: 10px 0;
-        }
-
-        .left .logo {
-            font-size: 3rem;
-            text-align: center;
-        }
-
-        .left .description {
-            font-size: 1.2rem;
-            text-align: center;
-        }
+  @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 0 20px;  /* خففنا البادينج */
+        flex-wrap: nowrap; /* منع الالتفاف اللي بيعمل انحراف */
     }
 
-    @media (max-width: 480px) {
-        .right {
-            padding: 20px 15px;
-        }
-
-        .left .logo {
-            font-size: 2.5rem;
-        }
-
-        .left .description {
-            font-size: 1rem;
-        }
+    .left, .right {
+        margin: 10px 0;    /* كل div في الوسط أفقياً */
+        width: 100%;
+        max-width: 420px;
     }
+
+    .right {
+        text-align: center;
+    }
+
+    .left .logo {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .left .description {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+}
+
 </style>
 </head>
 <body>
