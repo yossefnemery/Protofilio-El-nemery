@@ -1,137 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>twitter</title>
-        <link rel="stylesheet" href="c:\Users\Tema Store\Desktop\twitter\all.min.css">
-        <link rel="stylesheet" href="c:\Users\Tema Store\Desktop\twitter\solid.css">
-        <style>
-            body{
-                background-color: rgb(18, 22, 24);
-            }
-            div{
-                background-color: black;
-                color: white;
-                border-radius: 20px;
-                width: 600px;
-                height: 650px;
-                margin-left: 31%;
-                margin-top: 45px;
-                text-align: center;
-            }
-            img{
-                margin-top: 10px;
-                display: flexbox;
-            }
-            h2{
-                font-size: 40px;
-            }
-            .h22{
-                font-size: 33px;
-                margin-left: 205px;
-                margin-top: -40px;
-                font-family: Arial Black;
-            }
-            hr{
-                width: 255px;
-                border: solid 1px;
-                color: rgb(52, 52, 52);
-            }
-            h3{
-                margin-top: -20px;
-                width: 20px;
-                margin-left: 290px;
-                background-color: black;
-            }
-            .bu1{
-                width: 270px;
-                height: 40px;
-                background-color: white;
-                border-radius: 50px;
-                font-size: medium;
-            }
-            .bu2{
-                width: 270px;
-                height: 40px;
-                background-color: white;
-                border-radius: 50px;
-                font-size: larger; 
-            }
-            input{
-                width: 260px;
-                height: 40px;
-                background-color: black;
-                border: solid 2px rgb(52, 52, 52);
-                direction: rtl;
-                color: white;
-            }
-            ::placeholder{
-                color: rgb(102, 102, 102);
-                font-size: 20px;
-            }
-            .bu3{
-                width: 270px;
-                height: 40px;
-                border-radius: 50px;
-                background-color: white;
-                color: black;
-                font-size: 22px;
-            }
-            .bu4{
-                width: 270px;
-                height: 40px;
-                border-radius: 50px;
-                background-color: black;
-                color: white;
-                font-size: 22px;
-                border: solid 0.5px rgb(82, 82, 82);
-            }
-            p{
-                color: gray;
-                margin-left: 120px;
-            }
-            a{
-                color: rgb(69, 147, 255);
-                text-decoration: none;
-            }
-            a:hover{
-                color: rgb(69, 147, 255);
-                text-decoration: underline;
-            }
-            #mark{
-                display: flexbox;
-                margin-left: 555px;
-                margin-top: 17px;
-            }
-        </style>
-    </head>
-    <body>
-        <div>
-            <i id="mark" class="fa-solid fa-xmark"></i>
-            <br>
-            <img src="e:\Screenshots\Screenshot (93).png" width="75" height="40">
-            <h2>تسجيل الدخول الى</h2>
-            <h2 class="h22">X</h2>
-            <button class="bu1">Google تسجيل الدخول باستخدام         <i class="fa-brands fa-google"></i>            </button>
-            <br><br>
-            <button class="bu2"><b>Apple تسجيل الدخول باستخدام </b><i class="fa-brands fa-apple"></i></button>
-            <br>
-            <br>
-            <hr><h3>او</h3>
-            <input type="text" placeholder="الهاتف, اوالبريد الالكرونى, او اسم المستخدم">
-            <br>
-            <br>
-            <button class="bu3">التالى</button>
-            <br>
-            <br>
-            <button class="bu4">نسيت كلمة المرور؟</button>
-            <br>
-            <br>
-            <br>
-            <p>لديك حساب بالفعل؟ <a href=""> تسجيل </a> </p>
-        </div>
-    </body>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>Twitter Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background-color: rgb(18, 22, 24);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .login-box {
+      background-color: black;
+      color: white;
+      border-radius: 20px;
+      width: 400px;
+      padding: 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .close-icon {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .login-box img {
+      margin: 10px auto;
+      display: block;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+
+    .x-text {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .btn {
+      width: 100%;
+      height: 45px;
+      border-radius: 50px;
+      font-size: 16px;
+      margin: 8px 0;
+      cursor: pointer;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-google {
+      background-color: white;
+      color: black;
+    }
+
+    .btn-apple {
+      background-color: white;
+      color: black;
+      font-weight: bold;
+    }
+
+    .btn-next {
+      background-color: white;
+      color: black;
+      font-size: 18px;
+    }
+
+    .btn-forgot {
+      background-color: black;
+      color: white;
+      border: 1px solid rgb(82, 82, 82);
+      font-size: 16px;
+    }
+
+    input {
+      width: 95%;
+      height: 40px;
+      margin: 10px 0;
+      background-color: black;
+      border: 2px solid rgb(52, 52, 52);
+      border-radius: 5px;
+      color: white;
+      padding: 5px 10px;
+    }
+
+    ::placeholder {
+      color: rgb(102, 102, 102);
+      font-size: 14px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+      color: gray;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid rgb(52, 52, 52);
+    }
+
+    .divider span {
+      margin: 0 10px;
+    }
+
+    p {
+      color: gray;
+      font-size: 14px;
+    }
+
+    a {
+      color: rgb(69, 147, 255);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <i class="fa-solid fa-xmark close-icon"></i>
+    <img src="https://abs.twimg.com/icons/apple-touch-icon-192x192.png" width="50" alt="X Logo">
+    <h2>تسجيل الدخول إلى</h2>
+    <h2 class="x-text">X</h2>
+
+    <button class="btn btn-google">
+      <i class="fa-brands fa-google"></i> تسجيل الدخول باستخدام Google
+    </button>
+
+    <button class="btn btn-apple">
+      <i class="fa-brands fa-apple"></i> تسجيل الدخول باستخدام Apple
+    </button>
+
+    <div class="divider"><span>أو</span></div>
+
+    <input type="text" placeholder="الهاتف، البريد الإلكتروني أو اسم المستخدم">
+
+    <button class="btn btn-next">التالي</button>
+    <button class="btn btn-forgot">نسيت كلمة المرور؟</button>
+
+    <p>لديك حساب بالفعل؟ <a href="#">تسجيل</a></p>
+  </div>
+</body>
 </html>
-
-
-
-
