@@ -157,9 +157,9 @@
     display: block;
     height: 3px;
     width: 100%;
-    background: #e4e4e4;
+    background: #00eaff;
     border-radius: 2px;
-    transition: transform .25s ease, opacity .25s ease;
+     transition: transform .25s ease, opacity .25s ease, background .25s ease;
   }
 
   /* نخفي الروابط ونحولها لـ Overlay لما المنيو تتفتح */
@@ -186,7 +186,16 @@
   .nav-links a {
     font-size: 1.2rem;
     padding: 10px 14px;
+    color: #00eaff; /* نفس لون الهامبرجر */
+  text-shadow: 0 0 8px #00eaff; /* جلو حوالين النص */
+  font-size: 1.2rem;
+  padding: 10px 14px;
+  transition: color 0.3s, text-shadow 0.3s;
   }
+  .nav-links a:hover {
+  color: #fff; /* يتغير للأبيض عند الهوفر */
+  text-shadow: 0 0 12px #00eaff, 0 0 20px #00eaff;
+}
 }
 
  /* About Section */
