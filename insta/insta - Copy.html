@@ -1,146 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>insta</title>
-        <link rel="stylesheet" href="c:\Users\Tema Store\Desktop\insta\all.min.css">
-    </head>
-    <style>
-        .div1{
-            border: 1px solid rgb(210, 210, 210);
-            display: flexbox;
-            width: 330px;
-            height: 380px;
-            text-align: center;
-            margin-left: 380px;
-            margin-top: 50px;
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Login</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #fafafa;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding-top: 50px;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .login-box {
+        border: 1px solid #d2d2d2;
+        padding: 30px 20px;
+        width: 300px;
+        text-align: center;
+        background-color: white;
+        border-radius: 5px;
+    }
+
+    .login-box img.logo {
+        width: 170px;
+        margin-bottom: 20px;
+    }
+
+    .login-box input {
+        width: 100%;
+        padding: 8px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f4f4f4;
+        box-sizing: border-box;
+        direction: rtl;
+        font-size: 14px;
+    }
+
+    .login-box ::placeholder {
+        color: #909090;
+        font-size: 15px;
+    }
+
+    .login-box button.login-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #51b1ff;
+        color: white;
+        border: none;
+        border-radius: 7px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    .login-box button.login-btn:hover {
+        background-color: #3990e6;
+    }
+
+    .login-box hr {
+        margin: 20px 0;
+        border: 0.5px solid #dcdcdc;
+        position: relative;
+    }
+
+    .login-box hr::after {
+        content: "أو";
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        padding: 0 10px;
+        font-size: 14px;
+        color: gray;
+    }
+
+    .login-box p {
+        font-size: 13px;
+        color: #256dff;
+        margin: 10px 0;
+    }
+
+    .store-buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .store-buttons img {
+        width: 140px;
+        height: 45px;
+        object-fit: contain;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .big-image {
+        width: 380px;
+        height: 590px;
+        object-fit: cover;
+    }
+
+    .footer {
+        text-align: center;
+        font-size: 12px;
+        color: gray;
+        margin-top: 50px;
+        max-width: 800px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* ====== الموبايل ====== */
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 20px;
         }
-        img{
-            margin-top: 30px;
+
+        .big-image {
+            width: 300px;
+            height: auto;
         }
-        input{
-            border-radius: 3px ;
-            border: 1px solid rgb(204, 204, 204);
-            direction: rtl;
-            background-color: rgb(244, 244, 244);
-            width: 250px;
-            height: 28px;
-            display: flexbox;
-        }
-        ::placeholder{
-            font-size: 17px;
-            color: rgb(144, 144, 144);
-        }
-        .inpass{
-            margin-top: 5px;
-        }
-        .bu1{
-            width: 255px;
-            height: 28px;
-            color: white;
-            background-color: rgb(81, 177, 255);
-            border: none;
-            border-radius: 7px;
-        }
-        hr{
-            display: flexbox;
-            width: 248px;
-            margin-top: 10px;
-        }
-        .h31{
-            margin-top: -21px;
-            width: 30px;
-            height: 22px;
-            background-color: white;
-            margin-left: 152px;
-        }
-        p{
-            color: rgb(37, 69, 149);
-            
-        }
-        .div2{
-            border: 1px solid rgb(195, 195, 195);
-            display: flexbox;
-            width: 330px;
-            height: 50px;
-            margin-left: 380px;
-            margin-top: 12px;
-            text-align: center;
-        }
-        .img2{
-            display: flexbox;
-            margin-left: 750px;
-            margin-top: -465px;
-        }
-        .h32{
-            margin-left: 495px;
-            margin-top: -70px;
-            display: flexbox;
-        }
-        .bu2{
-            display: flexbox;
-            margin-left: 425px;
-            margin-top: 5px;
-            color: white;
-            background-color: black;
-            border: none;
-            padding-top: 7px;
-            padding-bottom: 1px;
-        }
-        .bu3{
-            display: flexbox;
-            color: white;
-            border: none;
-            background-color: black;
+
+        .store-buttons img {
+            width: 120px;
             height: 40px;
-            padding-top: 7px;
-            border-top-right-radius:2px ;
-            border-bottom-right-radius: 2px;
         }
-        .p2{
-            text-transform: capitalize;
-            margin-left: 200px;
-            margin-top: 65px;
-            color: gray;
-            word-spacing: 18px;
+
+        .footer {
+            font-size: 11px;
+            gap: 10px;
         }
-        .p3{
-            text-transform: capitalize;
-            margin-left: 600px;
-            margin-top: -5px;
-            color: gray;
-            word-spacing: 18px;
-        }
-    </style>
-    <body>
-        <div class="div1">
-            <img src="e:\Screenshots\Screenshot (96).png" width="170" height="60"><br><br>
-            <input type="text" placeholder="رقم الهاتف او اسم المستخدم او البريد الالكترونى">
-            <br>
-            <input class="inpass" type="password" placeholder="كلمة السر">
-            <br>
-            <br>
-            <button class="bu1"><b>تسجيل الدخول</b></button>
-            <br>
-            <br>
-            <hr><h3 class="h31">او</h3>
-            <p><b>تسجيل الدخول بحساب فيس بوك</b> <i class="fa-brands fa-facebook"></i></p>
-            <p>هل نسيت كلمة السر؟</p>
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="login-box">
+        <img src="logo insta.png" alt="Instagram Logo" class="logo">
+        <input type="text" placeholder="رقم الهاتف او اسم المستخدم او البريد الالكتروني">
+        <input type="password" placeholder="كلمة السر">
+        <button class="login-btn">تسجيل الدخول</button>
+        <hr>
+        <p><b>تسجيل الدخول بحساب فيس بوك</b> <i class="fa-brands fa-facebook"></i></p>
+        <p>هل نسيت كلمة السر؟</p>
+
+        <div class="store-buttons">
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
         </div>
-        <div class="div2">
-            <b><p> اليس لديك حساب؟ <a href="" style="text-decoration: none; color: rgb(81, 177, 255);">تسجيل</a></p></b>
-        </div>
-        <img src="e:\Screenshots\Screenshot (95).png" width="380" height="550" class="img2">
-        <br>
-        <img src="c:\Users\Tema Store\Desktop\apple-arabic.png" width="150" style="border-radius: 5px; margin-left: 390px;margin-top: -15px;">
-        <img src="c:\Users\Tema Store\Desktop\ar_badge_web_generic.png" width="150" style="border-radius: 5px;            margin-top: -15px;">
-        <p class="p2">
-            MetaVerified      تحميل جهات الاتصال وغير المستخدمين    threads    instagramlite      المواقع     الشروط      الخصوصية        واجهة       مساعدة      الوظائف     المدونة     حول     meta
-        </p>                                                                            
-        <p class="p3">&copy; 2024 instagram from meta <i class="fa-solid fa-chervon-up"></i> </p>     
-    </body>
+    </div>
+
+    <img src="photo insta.png" alt="Instagram Big" class="big-image">
+</div>
+
+<br>
+<!-- الفوتر -->
+<div class="footer">
+    <span>MetaVerified</span>
+    <span>تحميل جهات الاتصال وغير المستخدمين</span>
+    <span>Threads</span>
+    <span>Instagram Lite</span>
+    <span>المواقع</span>
+    <span>الشروط</span>
+    <span>الخصوصية</span>
+    <span>واجهة</span>
+    <span>مساعدة</span>
+    <span>الوظائف</span>
+    <span>المدونة</span>
+    <span>حول</span>
+    <span>Meta</span>
+    <span>&copy; 2024 Instagram from Meta</span>
+</div>
+
+</body>
 </html>
-
-
-
-
-
