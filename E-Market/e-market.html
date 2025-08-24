@@ -1,162 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>E-MARKET</title>
-        <link rel="import" href="car-shop.html">
-        <style>
-            body{
-                margin: 0px;
-                padding: 0px;
-            }
-            .nav-bar{
-                padding: 12px 0px 15px 50px;
-                display: flex;
-                border-bottom: 2px solid rgb(255, 125, 50);
-                box-shadow: 0px 5px 15px rgb(255, 125, 50);
-            }
-            .brand{
-                font-size: 30px;
-                font-family: Georgia, 'Times New Roman', Times, serif;
-                color: rgb(255, 125, 50);
-                text-shadow: 0px 0px 10px rgb(255, 125, 50);
-            }
-            ul{
-                display: flex;
-                margin-top: 29px;
-                list-style: none;
-                margin-left: 300px;
-            }
-            li{
-                padding-right: 25px;
-                padding-left: 25px;
-                padding-top: 5px;
-                padding-bottom: 5px;
-                font-size: 20px;
-                color: rgb(164, 164, 164);;
-            }
-            a{
-                text-decoration: none;
-            }
-            li:hover{
-                background-color: rgb(255, 125, 50);
-                color: white;
-                cursor: pointer;
-                border-radius: 5px;
-            }
-            .conter{
-                display: flex;
-                justify-self: center;
-            }
-            .d1{
-               /* background-color: aqua;  */
-               width: 600px;
-               height: 500px;
-               margin-right: 70px;
-               margin-top: 35px;
-            }
-            .img-sho,.img-sho-big{
-                border-radius: 15px;
-                border: 4px solid rgb(255, 125, 50);
-            }
-            .img-sho:hover{
-                border: 2px solid rgb(255, 94, 0);
-                opacity: 0.7;
-                transform: scale(1.1);
-            }
-            .d2{
-                /* background-color: blue; */
-                width: 600px;
-               height: 500px;
-               margin-top: 50px;
-            }
-        </style>
-    </head>
-    <body>
-        <nav class="nav-bar">
-            <h1 class="brand">Sneakers</h1>
-            <ul>
-                <a href=""><li class="li1">Collections</li></a>
-                <a href=""><li class="li2">Men</li></a>
-                <a href=""><li class="li3">Women </li></a>
-                <a href=""><li class="li4">About</li></a>
-           </ul>
-            <img src="WhatsApp Image 2025-03-02 at 15.39.11_aba30149.jpg" alt="" width="50" height="50"
-            style="border: 1px solid rgb(106, 106, 106);
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-MARKET</title>
+    <style>
+        /* Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Nav Bar */
+        .nav-bar {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid rgb(255, 125, 50);
+            box-shadow: 0px 5px 15px rgb(255, 125, 50);
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            font-size: 30px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: rgb(255, 125, 50);
+            text-shadow: 0px 0px 10px rgb(255, 125, 50);
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        ul li {
+            padding: 5px 25px;
+            font-size: 20px;
+            color: rgb(164, 164, 164);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        ul li:hover {
+            background-color: rgb(255, 125, 50);
+            color: white;
+        }
+
+        .nav-avatar {
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgb(106, 106, 106);
             border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            flex-wrap: wrap;
+            gap: 20px; /* تقليل المسافة بين الصورة والنص */
+        }
+
+        .d1 {
+            width: 550px; /* صغر الصورة الرئيسية شويه */
+            max-width: 100%;
+        }
+
+        .img-sho-big {
+            width: 100%; /* تتناسب مع div */
+            border-radius: 15px;
+            border: 4px solid rgb(255, 125, 50);
+            transition: all 0.3s ease;
+        }
+
+        /* توزيع الصور الصغيرة */
+        .small-images {
+            display: flex;
+            justify-content: space-between; /* توزيع متساوي */
+            margin-top: 10px;
+        }
+
+        .img-sho {
+            width: 22%; /* 4 صور متساوية */
+            height: auto;
+            border-radius: 15px;
+            border: 4px solid rgb(255, 125, 50);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .img-sho:hover {
+            border: 2px solid rgb(255, 94, 0);
+            opacity: 0.7;
+            transform: scale(1.1);
+        }
+
+        /* Product Info */
+        .d2 {
+            width: 600px;
+            max-width: 100%;
+        }
+
+        .d2 h1 {
+            font-size: 50px;
+        }
+
+        .price {
+            font-size: 30px;
+        }
+
+        .discount {
+            font-size: 25px;
+            background-color: black;
+            padding: 5px;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .btn-quantity, .btn-cart {
             margin-top: 20px;
-            margin-left: 30px;
-            cursor: pointer;"
-            >
-        </nav>
-        <div class="conter">
-            <div class="d1">
-                <img class="img-sho-big"  src=" image-product-1.jpg" alt="" width="450" height="450" style="margin-left: 140px;" id="main-imge">
-                <br>
-                <img class="img-sho" src="image-product-1.jpg" alt="" width="100" height="100" style="margin-left: 148px;" id="small-imge0" onclick="img(this)">
-                <img class="img-sho" src="image-product-2.jpg" alt="" width="100" height="100" id="small-imge1" onclick="img(this)">
-                <img class="img-sho" src="image-product-3.jpg" alt="" width="100" height="100" id="small-imge2" onclick="img(this)">
-                <img class="img-sho" src="image-product-4.jpg" alt="" width="100" height="100" id="small-imge2" onclick="img(this)">
-            </div>
-            <div class="d2">
-                <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">SNEAKER COMPANY</p>
-                <h1 style="font-size: 50px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Fall Limited Edition <br> Sneakers</h1>
-                <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-                    These low-profile sneakers are your perfect casual wear <br>
-                    companion. Featuring a durable rubber outer sole, they'll <br>
-                     withstand everything the weather can offe
-                </p>
-                <a style="font-size: 30px;">$125.00</a>&nbsp;&nbsp;&nbsp;<a style="font-size: 25px; background-color: black; padding: 5px; color: white; border-radius: 5px;">50%</a><br>
-                <s>$250.00</s><br><br><br>
-                <button onclick="mins()" style="background-color: rgb(238, 238, 238); color: rgb(255, 125, 50); padding: 3px; width: 50px; border-radius: 5px 0px 0px 5px ; border: none;"><h2><b><big>-</big></b></h2></button><button id="zero" style="background-color: rgb(238, 238, 238); padding: 3px; width: 50px; border: none; border-radius: 0px;"><h2>0<b><big></big></b></h2></button><button onclick="add()" style="background-color: rgb(238, 238, 238); color: rgb(255, 125, 50); padding: 3px; width: 50px; border-radius: 0px 5px 5px 0px ; border: none;"><h2><b><big>+</big></b></h2></button>
-                <button onclick="shopcar()" style=" margin-left: 20px; border-radius: 5px; border: none; background-color: rgb(255, 125, 50); width: 220px;">
-                    <h2><b><big>🛒 Add to cart</big></b></h2>
-                </button>
-            </div>
-        </div>
-        <Script>
-            function img(imge)
-            {
-                let main = document.getElementById("main-imge");
-                main.src = imge.src;
-            }
-            let cont =0;
-            function add() {
-                cont = parseInt(document.getElementById("zero").querySelector("h2").textContent);
-                cont++;
-                document.getElementById("zero").innerHTML = `<h2>${cont}<b><big></big></b></h2>`;
-            }
-            function mins() {
-    cont = parseInt(document.getElementById("zero").querySelector("h2").textContent);
-    if (cont > 0) {   // 👈 هنا الشرط
-        cont--;
-        document.getElementById("zero").innerHTML = `<h2>${cont}<b><big></big></b></h2>`;
+        }
+
+        .btn-quantity button {
+            background-color: rgb(238, 238, 238);
+            color: rgb(255, 125, 50);
+            padding: 3px;
+            width: 50px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #zero {
+            display: inline-block;
+            width: 40px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .btn-cart button {
+            background-color: rgb(255, 125, 50);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+       @media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .d1, .d2 {
+        width: 95%;
+    }
+
+    .d2 h1 {
+        font-size: 34px;
+    }
+
+    .price {
+        font-size: 22px;
+    }
+
+    .discount {
+        font-size: 16px;
+    }
+
+    .img-sho {
+        width: 22%; /* يظل موزع متساوي */
+    }
+
+    /* تصغير الـ nav أكثر للهواتف الصغيرة */
+    .nav-bar {
+        padding: 4px 6px;
+    }
+
+    .brand {
+        font-size: 20px;
+    }
+
+    ul li {
+        padding: 4px 10px;
+        font-size: 14px;
+    }
+
+    .nav-avatar {
+        width: 35px;
+        height: 35px;
     }
 }
 
-            function shopcar(){
-                if(cont<0 || cont==0)
-                {
-                    alert("Sorry, you cannot purchase "+cont+" products")
-                }
-                else
-                {
-                    let car = document.getElementById("carshop");
-                    car.style.backgroundColor = "black";
-                    car.style.padding = "3px";
-                    car.style.borderRadius= "50%";
-                    alert("Done add "+cont+" product\nGo to CarShop")
-                }
-            }
-            let product = 
-            {
-                name: "Fall Limited Edition Sneakers",
-                quantity: cont,
-                price: 125,
-                image: "c:\Users\Tema Store\Desktop\e-market\e-market\image-product-1.jpg"
-            }
 
-        </Script>
-    </body>
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <h1 class="brand">Sneakers</h1>
+        <ul>
+            <li>Collections</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>About</li>
+        </ul>
+        <img src="WhatsApp Image 2025-03-02 at 15.39.11_aba30149.jpg" alt="Avatar" class="nav-avatar">
+    </nav>
+
+    <div class="container">
+        <div class="d1">
+            <img id="main-imge" src="image-product-1.jpg" class="img-sho-big" alt="Main Product">
+            <div class="small-images">
+                <img class="img-sho" src="image-product-1.jpg" onclick="img(this)">
+                <img class="img-sho" src="image-product-2.jpg" onclick="img(this)">
+                <img class="img-sho" src="image-product-3.jpg" onclick="img(this)">
+                <img class="img-sho" src="image-product-4.jpg" onclick="img(this)">
+            </div>
+        </div>
+
+        <div class="d2">
+            <p>SNEAKER COMPANY</p>
+            <h1>Fall Limited Edition <br> Sneakers</h1>
+            <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
+
+            <div>
+                <span class="price">$125.00</span>
+                <span class="discount">50%</span>
+                <br>
+                <s>$250.00</s>
+            </div>
+
+            <div class="btn-quantity">
+                <button onclick="mins()">-</button>
+                <span id="zero">0</span>
+                <button onclick="add()">+</button>
+            </div>
+
+            <div class="btn-cart">
+                <button onclick="shopcar()">🛒 Add to cart</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function img(imge) {
+            document.getElementById("main-imge").src = imge.src;
+        }
+
+        let cont = 0;
+
+        function add() {
+            cont++;
+            document.getElementById("zero").textContent = cont;
+        }
+
+        function mins() {
+            if (cont > 0) {
+                cont--;
+                document.getElementById("zero").textContent = cont;
+            }
+        }
+
+        function shopcar() {
+            if (cont <= 0) {
+                alert("Sorry, you cannot purchase " + cont + " products");
+            } else {
+                alert("Done add " + cont + " product(s)\nGo to CarShop");
+            }
+        }
+    </script>
+
+</body>
 </html>
