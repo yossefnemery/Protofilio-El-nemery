@@ -1,107 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home 5</title>
-        <style>
-            body{
-                background-color: black;
-            }
-            .backgraound{
-                background-color: black;
-                background-image:url("WhatsApp Image 2024-11-13 at 22.32.03_448f0b09.jpg") ;
-                position: fixed;
-                background-attachment: fixed;
-                background-position: center;
-                background-size: cover;
-                margin-left: -8px;
-                width: 1540px;
-                height: 742px;
-                opacity: 50%;
-                z-index: -1;
-            }
-            .body{
-                position: relative;
-                z-index: 1;
-                color: white;
-                margin-top: -13px;
-                text-align: center; 
-            }
-            marquee{
-                background-color: rgba(0, 0, 0, 0.566);
-                padding: 20px;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home 5</title>
+    <style>
+        body{
+            background-color: black;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .backgraound{
+            background-color: black;
+            background-image:url("WhatsApp Image 2024-11-13 at 22.32.03_448f0b09.jpg");
+            position: fixed;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            z-index: -1;
+        }
+        .body{
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            padding-top: 20px;
+        }
+        marquee{
+            background-color: rgba(0, 0, 0, 0.566);
+            padding: 15px;
+            border-radius: 50px;
+            font-size: 18px;
+        }
+        .con_room{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px auto;
+            max-width: 1200px;
+        }
+        .sin,.dou,.fam{
+            border: 2px gray solid;
+            border-radius: 15px;
+            background-color: rgba(0, 0, 0, 0.444);
+            text-align: center;
+            flex: 1 1 300px;
+            max-width: 310px;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .img_room{
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        h1{
+            margin: 10px 0;
+        }
+        p{
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 10px 0;
+        }
+        h2{
+            margin: 10px 0;
+        }
 
-                border-radius: 50px;
-            }
-            .con_room{
-                display: flex;
-                width:1250px;
-                height: 500px;
-                margin-left: 145px;
-                margin-top: 70px;
-            }
-            .sin,.dou,.fam{
-                border: 2px gray solid;
-                background-color: rgba(0, 0, 0, 0.444);
-                text-align: center;
-                margin-top: 20px;
-            }
-            .dou{
-                margin-left: 150px;
-            }
-            .fam{
-                margin-left: 150px;
-            }
-            .img_room,h1{
-                margin-top: -48px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="backgraound"></div>
-        <div class="body">
-            <br>
-            <br>
-            <marquee>WELCOM TO FAIRMONT HOTEL</marquee>
-            <div class="con_room">
-                <div class="sin">
-                    <h1>SINGLE</h1>
-                    <br><br>
-                    <img src="WhatsApp Image 2024-11-13 at 22.36.27_d824fc38.jpg" alt="" width="310" class="img_room">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Modi similique exercitationem explicabo saepe numquam,
-                        repellendus ad provident vitae at sit vel sapiente sed fugit ipsum voluptas quia,
-                        illo in inventore!
-                    </p>
-                    <h2>4500$</h2>
-                </div>
-                <div class="dou">
-                    <h1>DOUBLE</h1>
-                    <br><br>
-                    <img src="WhatsApp Image 2024-11-13 at 22.36.27_d824fc38.jpg" alt="" width="310" class="img_room">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Modi similique exercitationem explicabo saepe numquam,
-                        repellendus ad provident vitae at sit vel sapiente sed fugit ipsum voluptas quia,
-                        illo in inventore!
-                    </p>
-                    <h2>4500$</h2>
-                </div>
-                <div class="fam">
-                    <h1>FAMILY</h1>
-                    <br><br>
-                    <img src="WhatsApp Image 2024-11-13 at 22.36.27_d824fc38.jpg" alt="" width="310" class="img_room">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Modi similique exercitationem explicabo saepe numquam,
-                        repellendus ad provident vitae at sit vel sapiente sed fugit ipsum voluptas quia,
-                        illo in inventore!
-                    </p>
-                    <h2>4500$</h2>
-                </div>
+         .btn{
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: rgba(222, 184, 135, 0.814);
+            border: white 2px solid;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+        .btn:hover{
+            background-color: white;
+            color: rgba(222, 184, 135, 0.814);
+            border: rgba(222, 184, 135, 0.814) 3px solid;
+        }
+
+        @media (max-width: 768px){
+    .con_room{
+        flex-direction: column;
+        gap: 20px;
+        justify-self: center;
+    }
+    .sin, .dou, .fam {
+        border-radius: 10px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="backgraound"></div>
+    <div class="body">
+        <marquee>WELCOME TO FAIRMONT HOTEL</marquee>
+        <div class="con_room">
+            <div class="sin">
+                <h1>SINGLE</h1>
+                <img src="WhatsApp Image 2024-11-13 at 22.36.27_d824fc38.jpg" alt="" class="img_room">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi similique exercitationem explicabo saepe numquam, repellendus ad provident vitae at sit vel sapiente sed fugit ipsum voluptas quia, illo in inventore!
+                </p>
+                <h2>4500$</h2>
+                <a href="#" class="btn">Book now</a>
+            </div>
+            <div class="dou">
+                <h1>DOUBLE</h1>
+                <img src="WhatsApp Image 2024-11-13 at 22.36.27_d824fc38.jpg" alt="" class="img_room">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi similique exercitationem explicabo saepe numquam, repellendus ad provident vitae at sit vel sapiente sed fugit ipsum voluptas quia, illo in inventore!
+                </p>
+                <h2>4500$</h2>
+                <a href="#" class="btn">Book now</a>
+            </div>
+            <div class="fam">
+                <h1>FAMILY</h1>
+                <img src="WhatsApp Image 2024-11-13 at 22.36.27_d824fc38.jpg" alt="" class="img_room">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi similique exercitationem explicabo saepe numquam, repellendus ad provident vitae at sit vel sapiente sed fugit ipsum voluptas quia, illo in inventore!
+                </p>
+                <h2>4500$</h2>
+                <a href="#" class="btn">Book now</a>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>
