@@ -221,6 +221,17 @@
       stopButton.textContent = gamePaused ? "Resume" : "Stop";
       if (!gamePaused) moveBall();
     });
+
+    
+gameArea.addEventListener('touchmove', (e) => {
+  if (gameActive && !gamePaused) {
+    const rect = gameArea.getBoundingClientRect();
+    const touch = e.touches[0];
+    mouseX = touch.clientX - rect.left;
+    mouseY = touch.clientY - rect.top;
+  }
+});
+
   </script>
 </body>
 </html>
