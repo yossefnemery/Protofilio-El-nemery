@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flip Login Card</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(180deg, white, rgba(255, 217, 0, 0.611));
+      transition: background 0.5s;
+    }
+
+    body.dark {
+      background: linear-gradient(180deg, black, rgba(105, 89, 0, 0.703));
+    }
+
+    .dark-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    body.dark .dark-toggle {
+      color: gold;
+    }
+
+
+    .card {
+      width: 400px;
+      height: 500px;
+      perspective: 1000px;
+
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      border: rgba(0, 0, 0, 0.362) 2px solid;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    .card-front,
+    .card-back {
+      background: white;
+      color: black;
+    }
+
+    body.dark .card-front,
+    body.dark .card-back {
+      background: #000;
+      color: #FFD700;
+      border: rgba(255, 217, 0, 0.551) 2px solid;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+
+    body.dark input {
+      background: #222;
+      border: 1px solid #FFD700;
+      color: #FFD700;
+    }
+
+    button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .submit {
+      background: gold;
+      color: black;
+      width: 100%;
+    }
+
+    .submit:hover {
+      background: goldenrod;
+    }
+
+    .switch {
+      background: none;
+      border: none;
+      color: #555;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: underline;
+    }
+
+    body.dark .switch {
+      color: gold;
+    }
+
+    .social-btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 15px;
+    }
+
+    .google {
+      background: #db4437;
+      color: white;
+    }
+
+    .google:hover {
+      background: #7e1406;
+    }
+
+    .facebook {
+      background: #3b5998;
+      color: white;
+    }
+
+    .facebook:hover {
+      background: #1d2a52;
+    }
+
+    .microsoft {
+      background: #4d4d4d;
+      color: white;
+    }
+
+    .microsoft:hover {
+      background: #1a1a1a;
+    }
+
+    body.dark .google {
+      background: #a33329;
+    }
+
+    body.dark .google:hover {
+      background: #6f1206;
+    }
+
+    body.dark .facebook {
+      background: #2d4373;
+    }
+
+    body.dark .facebook:hover {
+      background: #121c36;
+    }
+
+    body.dark .microsoft {
+      background: #242424;
+    }
+
+    body.dark .microsoft:hover {
+      background: #000000;
+    }
+
+
+
+
+    @keyframes shadowPulse {
+      0% {
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 0 35px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 215, 0, 0.8);
+      }
+
+      100% {
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4);
+      }
+    }
+
+    @keyframes floatCard {
+      0% {
+        transform: translate(0px, 0px) rotate(0deg);
+      }
+
+      20% {
+        transform: translate(6px, -6px) rotate(1deg);
+      }
+
+      40% {
+        transform: translate(-5px, 4px) rotate(-1.2deg);
+      }
+
+      60% {
+        transform: translate(7px, 5px) rotate(1.5deg);
+      }
+
+      80% {
+        transform: translate(-4px, -6px) rotate(-0.8deg);
+      }
+
+      100% {
+        transform: translate(0px, 0px) rotate(0deg);
+      }
+    }
+
+    .card {
+      animation: floatCard 8s ease-in-out infinite;
+    }
+
+    .card-front,
+    .card-back {
+      animation: shadowPulse 4s infinite alternate;
+    }
+
+    @media screen and (max-width: 750px) {
+      .card {
+        width: 75%;
+        height: 60%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <button class="dark-toggle" id="darkBtn">
+    <i class="fas fa-moon"></i>
+  </button>
+
+
+  <div class="card" id="main-card">
+    <div class="card-inner">
+
+      <div class="card-front">
+        <h1>Youssef</h1>
+        <h2>Login</h2>
+        <input type="text" placeholder="Full Name">
+        <input type="tel" placeholder="Phone Number">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button class="submit">Submit</button>
+        <button class="switch" id="toSocial">Sign up</button>
+      </div>
+
+      <div class="card-back">
+        <h1>El-Nemery</h1>
+        <h2>Login with</h2>
+        <button class="social-btn google"><i class="fab fa-google"></i> Google</button>
+        <button class="social-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+        <button class="social-btn microsoft"><i class="fab fa-microsoft"></i> Microsoft</button>
+        <button class="switch" id="toRegister">Back to Register</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const card = document.querySelector("#main-card");
+    const toSocial = document.querySelector("#toSocial");
+    const toRegister = document.querySelector("#toRegister");
+    const darkBtn = document.querySelector("#darkBtn");
+
+    toSocial.addEventListener("click", () => {
+      card.classList.add("flipped");
+    });
+
+    toRegister.addEventListener("click", () => {
+      card.classList.remove("flipped");
+    });
+    darkBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      const icon = darkBtn.querySelector("i");
+      if (document.body.classList.contains("dark")) {
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      } else {
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>
