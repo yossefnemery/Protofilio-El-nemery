@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <title>HOME 2</title>
   <style>
     body {
@@ -13,7 +15,6 @@
       text-align: center;
     }
 
-    /* الخلفية */
     .background {
       position: fixed;
       top: 0;
@@ -44,7 +45,8 @@
       margin-top: 20px;
     }
 
-    .d1, .d2 {
+    .d1,
+    .d2 {
       flex: 1;
       padding: 20px;
     }
@@ -57,7 +59,6 @@
       border-left: 3px solid white;
     }
 
-    /* تنسيقات الفورم */
     form {
       display: flex;
       flex-direction: column;
@@ -105,8 +106,18 @@
       height: 18px;
     }
 
-    /* الأزرار */
     .d2 input[type="button"] {
+      width: 220px;
+      height: 50px;
+      margin: 10px;
+      border-radius: 25px;
+      border: 2px solid white;
+      background-color: rgba(222, 184, 135, 0.6);
+      color: white;
+      cursor: pointer;
+    }
+
+    .btn{
       width: 220px;
       height: 50px;
       margin: 10px;
@@ -138,7 +149,6 @@
       text-decoration: underline;
     }
 
-    /* الأيقونات */
     .icons {
       margin-top: 40px;
     }
@@ -149,7 +159,6 @@
       cursor: pointer;
     }
 
-    /* 📱 للموبايل */
     @media (max-width: 768px) {
       h1 {
         font-size: 40px;
@@ -160,7 +169,8 @@
         align-items: center;
       }
 
-      .d1, .d2 {
+      .d1,
+      .d2 {
         border: none;
         width: 100%;
       }
@@ -198,21 +208,22 @@
     }
   </style>
 </head>
+
 <body>
   <div class="background"></div>
   <div class="body">
     <h1>L O G I N</h1>
 
     <div class="con">
-      <!-- الجزء الأول -->
       <div class="d1">
         <form action="project 4.html" target="_blank">
           <div class="input-row">
             <input type="text" placeholder="FIRST NAME">
-            <input type="number" placeholder="NUMBER">
+            <input type="text" placeholder="LAST NAME">
+
           </div>
           <div class="input-row">
-            <input type="text" placeholder="LAST NAME">
+            <input type="number" placeholder="NUMBER">
             <input type="number" placeholder="ID">
           </div>
           <div class="input-row">
@@ -236,16 +247,21 @@
         </form>
       </div>
 
-      <!-- الجزء الثاني -->
       <div class="d2">
-        <input type="button" value="Continue with GOOGLE">
-        <input type="button" value="Continue with APPLE">
+        <button class="btn">
+          Continue with 
+          <i class="fa-brands fa-google google"></i>
+        </button>
+
+        <button class="btn">
+          Continue with
+          <i class="fa-brands fa-apple apple"></i>
+        </button>
         <h1>Do You Already Have An Account?</h1>
         <a href="project 3.html" target="_blank">SIGN UP</a>
       </div>
     </div>
 
-    <!-- الأيقونات -->
     <div class="icons">
       <img src="pngegg (3).png" alt="icon">
       <img src="pngegg (2).png" alt="icon">
@@ -253,4 +269,5 @@
     </div>
   </div>
 </body>
+
 </html>
