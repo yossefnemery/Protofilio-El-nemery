@@ -1,13 +1,23 @@
-// Smoke
+// Smoke for mouse
 document.addEventListener("mousemove", (e) => {
+    createSmoke(e.clientX, e.clientY);
+});
+
+// Smoke for touch (mobile)
+document.addEventListener("touchmove", (e) => {
+    const touch = e.touches[0];
+    createSmoke(touch.clientX, touch.clientY);
+});
+
+function createSmoke(x, y) {
     let smoke = document.createElement("div");
     smoke.className = "smoke";
-    smoke.style.left = e.clientX + "px";
-    smoke.style.top = e.clientY + "px";
+    smoke.style.left = x + "px";
+    smoke.style.top = y + "px";
     document.body.appendChild(smoke);
-
     setTimeout(() => { smoke.remove(); }, 1500);
-});
+}
+
 
 // Welcome 
 const text = "Hi, I'm Yossef , Welcome to my Portfolio ";
