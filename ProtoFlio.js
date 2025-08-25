@@ -1,4 +1,4 @@
-// تأثير الدخان مع الماوس
+// Smoke
 document.addEventListener("mousemove", (e) => {
     let smoke = document.createElement("div");
     smoke.className = "smoke";
@@ -9,7 +9,7 @@ document.addEventListener("mousemove", (e) => {
     setTimeout(() => { smoke.remove(); }, 1500);
 });
 
-// تأثير الكتابة
+// Welcome 
 const text = "Hi, I'm Yossef , Welcome to my Portfolio ";
 const typingElement = document.getElementById("typing");
 let i = 0;
@@ -31,14 +31,14 @@ function typeWriter() {
 }
 typeWriter();
 
-// Contact Form Submission
+// Contact 
 function submitForm(event) {
     event.preventDefault();
     alert("Thank you! Your message has been sent.");
     event.target.reset();
 }
 
-
+// EmailJS 
 function sendEmail() {
     const parameters = {
         full_name: document.getElementById("full_name").value,
@@ -56,11 +56,7 @@ function sendEmail() {
         });
 }
 
-
-
-
-
-// ===== Mobile nav (hamburger) =====
+// ===== Mobile nav =====
 const navEl = document.querySelector('nav');
 const burger = document.querySelector('.hamburger');
 const navAnchors = document.querySelectorAll('nav .nav-links a');
@@ -69,10 +65,10 @@ if (burger && navEl) {
   burger.addEventListener('click', () => {
     const isOpen = navEl.classList.toggle('open');
     burger.setAttribute('aria-expanded', String(isOpen));
-    document.body.style.overflow = isOpen ? 'hidden' : ''; // يمنع سكرول تحت المنيو
+    document.body.style.overflow = isOpen ? 'hidden' : ''; 
   });
 
-  // اقفل المنيو أول ما المستخدم يضغط على أي لينك
+  // Close nav
   navAnchors.forEach(a => {
     a.addEventListener('click', () => {
       navEl.classList.remove('open');
