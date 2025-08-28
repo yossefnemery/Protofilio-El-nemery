@@ -109,7 +109,9 @@
      border-radius: 20px;
      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
      z-index: 10;
-     width: fit-content;
+     width: 52%;
+     justify-content: center;
+
  }
 
  nav a {
@@ -138,6 +140,7 @@
     transform: none;
     padding: 6px 10px;
     border-radius: 12px;
+    width: fit-content;
   }
 
   
@@ -612,6 +615,8 @@
   margin: 0 30px;
   vertical-align: top;
   color: #fff;
+  white-space: normal;
+    width: 30%;
 }
 
 .testimonial-card h3 {
@@ -727,4 +732,16 @@
     flex-wrap: wrap;
     gap: 8px;
   }
+  .testimonial-card {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.199);
+  border: 2px solid rgba(255, 255, 255, 0.441);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 0 30px;
+  vertical-align: top;
+  color: #fff;
+  white-space: normal;
+  width: 95%;
+}
 }
