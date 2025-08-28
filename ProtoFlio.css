@@ -35,7 +35,7 @@
      display: none;
  }
 
- /* موبايل يظهر الصورة بدل الفيديو */
+ 
  @media (max-width: 768px) {
      .video-desktop {
          display: none;
@@ -49,7 +49,7 @@
 
 
 
- /* جملة الترحيب */
+ 
  .content {
      font-family: 'Orbitron', sans-serif;
      font-size: 2.2rem;
@@ -69,7 +69,7 @@
      }
  }
 
- /* الدخان حوالين الماوس */
+ 
  .smoke {
      position: fixed;
      width: 30px;
@@ -124,13 +124,13 @@
      text-shadow: 0 0 8px #00eaff;
  }
 
- /* الوضع الافتراضي (ديسكتوب) */
+ 
 .hamburger { display: none; }
 .nav-links { display: flex; gap: 25px; }
 
-/* موبايل فقط */
+
 @media (max-width: 768px) {
-  /* نخفّف صندوق الـ nav وننزّله يمين فوق */
+  
   nav {
     top: 16px;
     right: 16px;
@@ -140,7 +140,7 @@
     border-radius: 12px;
   }
 
-  /* زرار الهامبرجر */
+  
   .hamburger {
     display: flex;
     width: 36px;
@@ -151,7 +151,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 10001; /* يفضل يبقى فوق الـ overlay */
+    z-index: 10001; 
   }
   .hamburger span {
     display: block;
@@ -162,9 +162,9 @@
      transition: transform .25s ease, opacity .25s ease, background .25s ease;
   }
 
-  /* نخفي الروابط ونحولها لـ Overlay لما المنيو تتفتح */
+  
   .nav-links {
-    display: none;               /* مخفيه افتراضياً على الموبايل */
+    display: none;               
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,.92);
@@ -177,28 +177,25 @@
   }
   nav.open .nav-links { display: flex; }
 
-  /* أنيميشن علامة X عند الفتح */
   nav.open .hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
   nav.open .hamburger span:nth-child(2) { opacity: 0; }
   nav.open .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-  /* كمان نخلي حجم الروابط في المنيو مريح للمس */
   .nav-links a {
     font-size: 1.2rem;
     padding: 10px 14px;
-    color: #00eaff; /* نفس لون الهامبرجر */
-  text-shadow: 0 0 8px #00eaff; /* جلو حوالين النص */
+    color: #00eaff;
+  text-shadow: 0 0 8px #00eaff; 
   font-size: 1.2rem;
   padding: 10px 14px;
   transition: color 0.3s, text-shadow 0.3s;
   }
   .nav-links a:hover {
-  color: #fff; /* يتغير للأبيض عند الهوفر */
+  color: #fff; 
   text-shadow: 0 0 12px #00eaff, 0 0 20px #00eaff;
 }
 }
 
- /* About Section */
  .about-section {
      display: flex;
      justify-content: center;
@@ -207,7 +204,6 @@
      padding: 20px;
  }
 
- /* Card موحد للصور والأسهم */
  .about-card {
      display: flex;
      gap: 30px;
@@ -469,6 +465,188 @@
      transition: 0.3s;
  }
 
+
+/* Rating Section */
+.rating-section {
+  margin: 100px auto;
+  max-width: 700px;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.rating-section h2 {
+  font-size: 2.5rem;
+  color: #00eaff;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+  margin-bottom: 30px;
+}
+
+.rating-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: rgba(15, 15, 25, 0.7);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.3);
+}
+
+.rating-form .stars {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.rating-form .stars i {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.rating-form .stars i.active,
+.rating-form .stars i.hovered {
+  color: #00eaff; /* التيل الكبير */
+  transform: scale(1.2);
+}
+
+
+.rating-form input{
+     padding: 12px 15px;
+     border-radius: 10px;
+     border: 1px solid rgba(255, 255, 255, 0.3);
+     background: rgba(0, 0, 0, 0.3);
+     color: #fff;
+     font-size: 1rem;
+     font-family: 'Poppins', sans-serif;
+     outline: none;
+     resize: none;
+ }
+
+ .rating-form input::placeholder,
+ .rating-form textarea::placeholder {
+     color: #ccc;
+ }
+
+.rating-form textarea {
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  resize: none;
+}
+
+.rating-form textarea::placeholder {
+  color: #ccc;
+}
+
+.rating-form button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid #00eaff;
+  border-radius: 10px;
+  background: transparent;
+  color: #00eaff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.rating-form button:hover {
+  background: #00eaff;
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 200, 255, 0.6);
+}
+
+.rating-form button:active{
+
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1px solid #00eaff;
+    border-radius: 10px;
+    background: transparent;
+    color: #00eaff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+/* Testimonials Section */
+.testimonials-section {
+  margin: 100px auto;
+  max-width: 85%;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.testimonials-section h2 {
+  font-size: 2.5rem;
+  color: #00eaff;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+  margin-bottom: 40px;
+}
+
+.testimonials-box {
+  background: rgba(15, 15, 25, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.3);
+  padding: 30px;
+  overflow: hidden;
+}
+
+.testimonial-card {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.199);
+  border: 2px solid rgba(255, 255, 255, 0.441);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 0 30px;
+  vertical-align: top;
+  color: #fff;
+}
+
+.testimonial-card h3 {
+  margin-bottom: 10px;
+  color: #00eaff;
+}
+
+.testimonial-card .stars {
+  color: #00eaff;
+  margin-bottom: 10px;
+}
+
+.testimonial-card p {
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  color: #ddd;
+}
+
+.testimonial-card a {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid #00eaff;
+  border-radius: 8px;
+  color: #00eaff;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 0.9rem;
+}
+
+.testimonial-card a:hover {
+  background: #00eaff;
+  color: #000;
+  box-shadow: 0 0 10px #00eaff;
+}
+
  /* Social Section */
  .social-section {
      margin: 100px auto;
@@ -528,7 +706,7 @@
   }
 
   .about-card {
-    flex-direction: column;      /* رص عمودي */
+    flex-direction: column;      
     text-align: center;
     gap: 16px;
     padding: 16px;
@@ -541,7 +719,7 @@
   .about-images img {
     width: min(65vw, 260px);
     height: auto;
-    aspect-ratio: 1/1;           /* تخليها مربعة بشكل متسق */
+    aspect-ratio: 1/1;          
   }
 
   .cv-container {

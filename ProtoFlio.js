@@ -1,9 +1,9 @@
-// Smoke for mouse
+
 document.addEventListener("mousemove", (e) => {
     createSmoke(e.clientX, e.clientY);
 });
 
-// Smoke for touch (mobile)
+
 document.addEventListener("touchmove", (e) => {
     const touch = e.touches[0];
     createSmoke(touch.clientX, touch.clientY);
@@ -19,7 +19,7 @@ function createSmoke(x, y) {
 }
 
 
-// Welcome 
+
 const text = "Hi, I'm Yossef , Welcome to my Portfolio ";
 const typingElement = document.getElementById("typing");
 let i = 0;
@@ -41,19 +41,20 @@ function typeWriter() {
 }
 typeWriter();
 
-// Contact 
+
 function submitForm(event) {
     event.preventDefault();
     alert("Thank you! Your message has been sent.");
     event.target.reset();
 }
 
-// EmailJS 
+
 function sendEmail() {
     const parameters = {
         full_name: document.getElementById("full_name").value,
         phone: document.getElementById("phone").value,
         email: document.getElementById("email").value,
+        budget: document.getElementById("budget").value,
         message: document.getElementById("message").value
     };
     emailjs.send("service_dd216cl", "template_3jkoi3h", parameters)
@@ -66,7 +67,72 @@ function sendEmail() {
         });
 }
 
-// ===== Mobile nav =====
+let selectedRating = 0; 
+
+function fillStars(count) {
+  const stars = document.querySelectorAll(".rating-form .stars i");
+  stars.forEach((s, i) => {
+    if (i < count) {
+      s.classList.remove("fa-regular");
+      s.classList.add("fa-solid", "active");
+    } else {
+      s.classList.remove("fa-solid", "active");
+      s.classList.add("fa-regular");
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  const ratingForm = document.querySelector(".rating-form");
+  const stars = ratingForm.querySelectorAll(".stars i");
+
+  stars.forEach((star, index) => {
+    star.addEventListener("mouseover", () => fillStars(index + 1));
+    star.addEventListener("click", () => {
+      selectedRating = index + 1;
+      fillStars(selectedRating);
+    });
+  });
+
+  ratingForm.querySelector(".stars").addEventListener("mouseleave", () => fillStars(selectedRating));
+
+  ratingForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (selectedRating === 0) {
+      alert("⚠️ Please select a star rating before submitting!");
+      return;
+    }
+
+    const params = {
+      name_rate: document.getElementById("name-rate").value,
+      email_rate: document.getElementById("email-rate").value,
+      message_rate: document.getElementById("message-rate").value,
+      link: document.getElementById("link-project").value,
+      rating: selectedRating
+    };
+
+    emailjs.send("service_dd216cl", "template_oyhdq6n", params)
+      .then(() => {
+        alert("Feedback sent successfully");
+        e.target.reset();
+        selectedRating = 0;
+        fillStars(0);
+      }, (error) => {
+        console.error("EmailJS Rating Error:", error);
+        alert("Error sending feedback. Please try again later.");
+      });
+  });
+});
+
+
+
+
+
+
+
+
+
 const navEl = document.querySelector('nav');
 const burger = document.querySelector('.hamburger');
 const navAnchors = document.querySelectorAll('nav .nav-links a');
@@ -78,7 +144,7 @@ if (burger && navEl) {
     document.body.style.overflow = isOpen ? 'hidden' : ''; 
   });
 
-  // Close nav
+
   navAnchors.forEach(a => {
     a.addEventListener('click', () => {
       navEl.classList.remove('open');

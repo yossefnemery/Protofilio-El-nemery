@@ -15,29 +15,27 @@
     <!-- Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-    <!-- Microsoft Clarity -->
+<!-- Microsoft -->
     <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "t02v8tbri2");
-</script>
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "t02v8tbri2");
+    </script>
+
+<!-- google -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E8C0D1YKZC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-E8C0D1YKZC');
+    </script>
 
 
-<!-- Google -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E8C0D1YKZC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-E8C0D1YKZC');
-</script>
-    
-
-    <!-- EmailJS -->
+<!-- Email -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
     <script type="text/javascript">
@@ -47,33 +45,37 @@
             });
         })();
     </script>
+
+
+
 </head>
 
 <body>
 
     <!-- background -->
-<div class="video-background">
-  <video autoplay muted loop playsinline class="video-desktop">
-    <source src="Space_background.mp4" type="video/mp4">
-  </video>
-  <img src="background_Phone.png" alt="Background" class="video-mobile">
-</div>
+    <div class="video-background">
+        <video autoplay muted loop playsinline class="video-desktop">
+            <source src="Space_background.mp4" type="video/mp4">
+        </video>
+        <img src="background_Phone.png" alt="Background" class="video-mobile">
+    </div>
 
 
     <!-- nav-bar -->
     <nav>
-  <button class="hamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
 
-  <div class="nav-links">
-    <a href="#top">Home</a>
-    <a href="#about">About Me</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-    <a href="#Social">Social Media</a>
-  </div>
-</nav>
+        <div class="nav-links">
+            <a href="#top">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <a href="#rating">Rate Me</a>
+            <a href="#Social">Social Media</a>
+        </div>
+    </nav>
 
 
     <!-- Welcome -->
@@ -158,13 +160,59 @@
         <h2>Contact Me</h2>
         <form class="contact-form" onsubmit="sendEmail(); return false;">
             <h2>Your first deal with me is FREE</h2>
-            <input class="Microsoft" type="text" id="full_name" placeholder="Your Full Name" required>
-            <input class="Microsoft" type="text" id="phone" placeholder="Phone / WhatsApp" required>
-            <input class="Microsoft" type="email" id="email" placeholder="Your Email" required>
+            <input type="text" id="full_name" placeholder="Your Full Name" required>
+            <input type="text" id="phone" placeholder="Phone / WhatsApp" required>
+            <input type="number" id="budget" placeholder="Budget $" required>
+            <input type="email" id="email" placeholder="Your Email" required>
             <textarea class="Microsoft" rows="6" id="message" placeholder="Your Message" required></textarea>
             <button type="submit">Send Message</button>
         </form>
     </section>
+
+
+    <!-- Rating Section -->
+    <section class="rating-section" id="rating">
+  <h2>Rate Me</h2>
+  <form class="rating-form">
+    <div class="stars">
+      <i class="fa-regular fa-star" data-value="1"></i>
+      <i class="fa-regular fa-star" data-value="2"></i>
+      <i class="fa-regular fa-star" data-value="3"></i>
+      <i class="fa-regular fa-star" data-value="4"></i>
+      <i class="fa-regular fa-star" data-value="5"></i>
+    </div>
+    <input type="text" id="name-rate" placeholder="Your Full Name" required>
+    <input type="email" id="email-rate" placeholder="Your Email" required>
+    <input type="url" id="link-project" placeholder="Your Link(URL) Project This Developed By Me" required>
+    <textarea id="message-rate" placeholder="Write your feedback..." rows="5" required></textarea>
+    <button type="submit">Rate</button>
+  </form>
+</section>
+
+
+
+
+<!-- Testimonials Section -->
+<!-- <section class="testimonials-section" id="testimonials">
+  <h2>What Clients Say?</h2>
+  <div class="testimonials-box">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      <div class="testimonial-card">
+        <h3>Mohamed Ali</h3>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+        </div>
+        <p>"Great work, delivered on time!"</p>
+        <a href="#" target="_blank">View Project</a>
+      </div>
+    </marquee>
+  </div>
+</section> -->
+
 
     <!-- Social Section -->
     <section class="social-section" id="Social">
@@ -196,6 +244,7 @@
                 <i class="fab fa-github"></i>
                 <span>GitHub</span>
             </a>
+            
         </div>
     </section>
 
