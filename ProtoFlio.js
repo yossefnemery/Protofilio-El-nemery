@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-const cards = document.querySelectorAll(".testimonial-card");
+ const cards = document.querySelectorAll(".testimonial-card");
 const prevBtn = document.querySelector(".arrow.left");
 const nextBtn = document.querySelector(".arrow.right");
 
@@ -154,6 +154,45 @@ nextBtn.addEventListener("click", () => {
 
 // show first card
 showCard(currentIndex);
+
+
+// ضمان إن الأزرار شغالة حتى في الموبايل
+prevBtn.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+  showCard(currentIndex);
+});
+
+nextBtn.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  currentIndex = (currentIndex + 1) % cards.length;
+  showCard(currentIndex);
+});
+
+// دعم السحب (Swipe) للموبايل
+let startX = 0;
+
+document.querySelector(".testimonials-slider").addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+document.querySelector(".testimonials-slider").addEventListener("touchend", (e) => {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) {
+    // سحب لليسار -> الكارد اللي بعده
+    currentIndex = (currentIndex + 1) % cards.length;
+    showCard(currentIndex);
+  } else if (endX - startX > 50) {
+    // سحب لليمين -> الكارد اللي قبله
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    showCard(currentIndex);
+  }
+});
+
+
+
+
+
 
 
 

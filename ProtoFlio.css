@@ -627,6 +627,9 @@
      color: #fff;
  }
 
+
+
+
  /* Social Section */
  .social-section {
      margin: 100px auto;
@@ -798,20 +801,21 @@
          gap: 8px;
      }
 
-    .testimonials-box{
-    width: 90%;
-     height: fit-content;
-     position: relative;
-     background: rgba(15, 15, 25, 0.7);
-     border: 1px solid rgba(255, 255, 255, 0.3);
-     border-radius: 20px;
-     box-shadow: 0 0 25px rgba(0, 200, 255, 0.3);
-     padding: 30px;
-     overflow: hidden;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-    }
+     .testimonials-box {
+         width: 90%;
+         height: fit-content;
+         position: relative;
+         background: rgba(15, 15, 25, 0.7);
+         border: 1px solid rgba(255, 255, 255, 0.3);
+         border-radius: 20px;
+         box-shadow: 0 0 25px rgba(0, 200, 255, 0.3);
+         padding: 30px;
+         overflow: hidden;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+     }
+
      .testimonial-card {
          display: inline-block;
          background: rgba(0, 0, 0, 0.199);
@@ -823,9 +827,10 @@
          color: #fff;
          white-space: normal;
      }
-     .arrow{
-        margin-left: -8px;
-        margin-right: -8px;
+
+     .arrow {
+         margin-left: -8px;
+         margin-right: -8px;
      }
 
 
