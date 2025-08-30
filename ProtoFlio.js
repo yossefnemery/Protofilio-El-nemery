@@ -129,6 +129,32 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+const cards = document.querySelectorAll(".testimonial-card");
+const prevBtn = document.querySelector(".arrow.left");
+const nextBtn = document.querySelector(".arrow.right");
+
+let currentIndex = 0;
+
+function showCard(index) {
+  cards.forEach((card, i) => {
+    card.classList.remove("active");
+    if (i === index) card.classList.add("active");
+  });
+}
+
+prevBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+  showCard(currentIndex);
+});
+
+nextBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % cards.length;
+  showCard(currentIndex);
+});
+
+// show first card
+showCard(currentIndex);
+
 
 
 
