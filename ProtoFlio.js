@@ -129,65 +129,59 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
- const cards = document.querySelectorAll(".testimonial-card");
-const prevBtn = document.querySelector(".arrow.left");
-const nextBtn = document.querySelector(".arrow.right");
 
-let currentIndex = 0;
+// Testimonials Slider 
+// document.addEventListener("DOMContentLoaded", function () {
+//     const cards = document.querySelectorAll(".testimonial-card");
+//     const prevBtn = document.querySelector(".arrow.left");
+//     const nextBtn = document.querySelector(".arrow.right");
+//     const slider = document.querySelector(".testimonials-slider");
 
-function showCard(index) {
-  cards.forEach((card, i) => {
-    card.classList.remove("active");
-    if (i === index) card.classList.add("active");
-  });
-}
+//     let currentIndex = 0;
 
-prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-  showCard(currentIndex);
-});
+//     function showCard(index) {
+//         cards.forEach((card, i) => {
+//             card.classList.remove("active");
+//             if (i === index) {
+//                 card.classList.add("active");
+//             }
+//         });
+//     }
 
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % cards.length;
-  showCard(currentIndex);
-});
+//     function nextCard() {
+//         currentIndex = (currentIndex + 1) % cards.length;
+//         showCard(currentIndex);
+//     }
 
-// show first card
-showCard(currentIndex);
+//     function prevCard() {
+//         currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+//         showCard(currentIndex);
+//     }
 
+//     // أزرار التنقل
+//     nextBtn.addEventListener("click", nextCard);
+//     prevBtn.addEventListener("click", prevCard);
 
-// ضمان إن الأزرار شغالة حتى في الموبايل
-prevBtn.addEventListener("touchstart", (e) => {
-  e.preventDefault();
-  currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-  showCard(currentIndex);
-});
+//     // دعم السحب (Swipe) للموبايل
+//     let startX = 0;
+//     let endX = 0;
 
-nextBtn.addEventListener("touchstart", (e) => {
-  e.preventDefault();
-  currentIndex = (currentIndex + 1) % cards.length;
-  showCard(currentIndex);
-});
+//     slider.addEventListener("touchstart", (e) => {
+//         startX = e.touches[0].clientX;
+//     });
 
-// دعم السحب (Swipe) للموبايل
-let startX = 0;
+//     slider.addEventListener("touchend", (e) => {
+//         endX = e.changedTouches[0].clientX;
+//         if (startX - endX > 50) {
+//             nextCard(); // سحب لليسار → التالي
+//         } else if (endX - startX > 50) {
+//             prevCard(); // سحب لليمين ← السابق
+//         }
+//     });
 
-document.querySelector(".testimonials-slider").addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
-});
-
-document.querySelector(".testimonials-slider").addEventListener("touchend", (e) => {
-  let endX = e.changedTouches[0].clientX;
-  if (startX - endX > 50) {
-    // سحب لليسار -> الكارد اللي بعده
-    currentIndex = (currentIndex + 1) % cards.length;
-    showCard(currentIndex);
-  } else if (endX - startX > 50) {
-    // سحب لليمين -> الكارد اللي قبله
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    showCard(currentIndex);
-  }
-});
+//     // أول كارت يظهر
+//     showCard(currentIndex);
+// });
 
 
 

@@ -524,8 +524,12 @@
  }
 
 
+
+
+
+
  /* Testimonials Section */
- .testimonials-section {
+ /* .testimonials-section {
      margin: 100px auto;
      max-width: 85%;
      text-align: center;
@@ -625,9 +629,11 @@
 
  .arrow:hover {
      color: #fff;
- }
+ } */
 
 
+
+ 
 
 
  /* Social Section */
@@ -801,7 +807,7 @@
          gap: 8px;
      }
 
-     .testimonials-box {
+     /* .testimonials-box {
          width: 90%;
          height: fit-content;
          position: relative;
@@ -831,7 +837,10 @@
      .arrow {
          margin-left: -8px;
          margin-right: -8px;
-     }
+         z-index: 10;
+         touch-action: manipulation;
+
+     } */
 
 
  }
