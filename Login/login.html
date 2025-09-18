@@ -303,6 +303,9 @@
   </div>
 
   <script>
+
+
+
     const card = document.querySelector("#main-card");
     const toSocial = document.querySelector("#toSocial");
     const toRegister = document.querySelector("#toRegister");
@@ -316,7 +319,7 @@
       card.classList.remove("flipped");
     });
     darkBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
+    document.body.classList.toggle("dark");
       const icon = darkBtn.querySelector("i");
       if (document.body.classList.contains("dark")) {
         icon.classList.remove("fa-moon");
